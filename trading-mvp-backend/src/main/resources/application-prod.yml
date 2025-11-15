@@ -1,0 +1,43 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: trading-mvp-backend
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://aws-1-ap-south-1.pooler.supabase.com:6543/postgres?prepareThreshold=0&preparedStatementCacheQueries=0}
+    username: ${DB_USERNAME:postgres.lcjfoxpbqyfnellhplyz}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate  # Use validate in production, manage schema with migrations
+    show-sql: false  # Disable SQL logging in production for performance
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION:86400000}  # 24 hours in milliseconds
+
+cors:
+  allowed-origins: ${CORS_ORIGINS}
+
+logging:
+  level:
+    com.trading.mvp: INFO
+    org.springframework.security: WARN
+  file:
+    name: /var/log/trading-mvp/application.log
+    max-size: 10MB
+    max-history: 30

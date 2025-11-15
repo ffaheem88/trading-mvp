@@ -1,0 +1,41 @@
+[Unit]
+Description=Trading MVP Spring Boot Application
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/trading-mvp-backend
+
+# Environment Variables - REPLACE WITH YOUR ACTUAL VALUES
+Environment="SPRING_PROFILES_ACTIVE=prod"
+Environment="DB_PASSWORD=YOUR_DATABASE_PASSWORD_HERE"
+Environment="JWT_SECRET=YOUR_LONG_RANDOM_SECRET_HERE_AT_LEAST_64_CHARACTERS_LONG"
+Environment="CORS_ORIGINS=https://your-app.vercel.app"
+Environment="PORT=8080"
+
+# Optional: If you want to customize these
+# Environment="DB_URL=jdbc:postgresql://aws-1-ap-south-1.pooler.supabase.com:6543/postgres?prepareThreshold=0&preparedStatementCacheQueries=0"
+# Environment="DB_USERNAME=postgres.lcjfoxpbqyfnellhplyz"
+# Environment="JWT_EXPIRATION=86400000"
+
+# Java execution
+ExecStart=/usr/bin/java -jar \
+  -Xms256m \
+  -Xmx512m \
+  -Dspring.profiles.active=prod \
+  /home/ubuntu/trading-mvp-backend/target/trading-mvp-backend-0.0.1-SNAPSHOT.jar
+
+# Restart policy
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=trading-mvp
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
