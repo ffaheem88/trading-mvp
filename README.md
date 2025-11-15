@@ -78,6 +78,34 @@ Costs about $5/month on AWS Lightsail.
 - Join competitions (with entry fee and participant limits)
 - View competitions you've joined
 
+## How to Use
+
+1. **Register an account**
+   - Click "Register" on the landing page
+   - Enter email, username, and password
+   - Hit "Create Account"
+
+2. **Login**
+   - Use your email and password
+   - You'll get redirected to the competitions page
+   - Your JWT token gets stored in localStorage (stays valid for 24 hours)
+
+3. **Browse competitions**
+   - See all available competitions with their entry fees, prize pools, and participant counts
+   - Check start/end dates and max participant limits
+   - Filter or search through competitions (coming soon)
+
+4. **Join a competition**
+   - Click "Join Competition" on any competition card
+   - System checks if you're already joined and if there's space available
+   - Once joined, the button changes to show you're in
+
+5. **Leave a competition**
+   - Go to "My Competitions" page
+   - Click "Leave Competition" if you change your mind
+   - You can rejoin later if spots are still available
+
+That's it for now. No actual trading yet - this is just the competition enrollment system.
 
 ## Development Notes
 
