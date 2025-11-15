@@ -1,7 +1,10 @@
 import axios from 'axios';
 import type { RegisterData, LoginData, CompetitionFilters } from '../types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
+// Use relative URL for production (same domain as frontend via Nginx)
+// Use localhost for local development
+const API_URL = import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD ? '/api' : 'http://localhost:8080/api');
 
 const api = axios.create({
   baseURL: API_URL,
