@@ -69,7 +69,6 @@ Quick version:
 4. Fill in your database password and JWT secret
 5. Done
 
-Costs about $5/month on AWS Lightsail.
 
 ## Current Features
 
