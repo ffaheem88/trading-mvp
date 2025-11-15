@@ -2,6 +2,8 @@
 
 A web app where users can join trading competitions and compete against each other. Currently in MVP stage with basic user authentication and competition management.
 
+**Live Demo:** http://13.201.9.226/
+
 ## What's Inside
 
 This is a full-stack application with:
